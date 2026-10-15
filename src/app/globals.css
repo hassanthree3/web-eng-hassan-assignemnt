@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6f5f2;
+  --foreground: #1c1917;
 }
 
+/* Colours taken from the SMIU logo: maroon (#76312c) and green (#153c27). */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-50: #faf3f2;
+  --color-brand-100: #f2e1df;
+  --color-brand-200: #e2bdb9;
+  --color-brand-600: #8c3d37;
+  --color-brand-700: #76312c;
+  --color-brand-800: #5f2723;
+  --color-brand-900: #451c19;
+  --color-accent-50: #eef4f0;
+  --color-accent-100: #d7e6dc;
+  --color-accent-600: #22553a;
+  --color-accent-700: #1b4a31;
+  --color-accent-800: #153c27;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-serif: var(--font-serif-display);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes load-bar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-fade-in { animation: fade-in 0.6s ease-out both; }
+.animate-load-bar { animation: load-bar 2.6s ease-in-out both; transform-origin: left; }
+
+@media print {
+  aside, header, footer, .no-print { display: none !important; }
 }
